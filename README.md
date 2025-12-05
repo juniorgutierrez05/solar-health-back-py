@@ -13,6 +13,5 @@ La lógica principal se encuentra en `app/calculadora_financiera.py`, que expone
 
 1. Instale las dependencias (FastAPI, Uvicorn, etc.).
 2. Ejecute la API con `uvicorn main:app --reload`.
-3. Llame al endpoint `/calculate` con los parámetros requeridos para obtener un informe financiero detallado.
 
 El repositorio está estructurado para ser fácilmente extensible a nuevos modelos de energía o parámetros de costo.
