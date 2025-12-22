@@ -8,7 +8,7 @@ router = APIRouter()
 # =========================
 # Cargar modelo
 # =========================
-model = joblib.load("modelos/peak_shaving_model.pkl")
+model = joblib.load("modelos/")
 
 # =========================
 # Esquema de entrada
