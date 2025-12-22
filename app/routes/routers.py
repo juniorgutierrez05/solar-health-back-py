@@ -6,7 +6,7 @@ from datetime import datetime
 
 from app.db_config.database import get_db
 from app.models.models import Departamento, Ciudad, IPS, Consumo, Irradiacion, SistemaFV, ResultadosFinancieros
-from app.schemas import (
+from app.models.schemas import (
     DepartamentoResponse, CiudadResponse, IPSResponse, IPSCreate,
     RegistroCompletoRequest, RegistroCompletoResponse, ResultadosFinancierosData,
     ConsumoResponse
