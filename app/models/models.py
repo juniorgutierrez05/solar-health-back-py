@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, Numeric, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from decimal import Decimal
-from app.database import Base
+from app.db_config.database import Base
 
 class Departamento(Base):
     __tablename__ = "departamento"

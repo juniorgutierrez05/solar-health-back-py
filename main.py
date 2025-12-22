@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import router_departamentos, router_ciudades, router_ips, router_registro
-from app.database import engine
-from app.models import Base
+from app.routes.routers import router_departamentos, router_ciudades, router_ips, router_registro
+from app.db_config.database import engine
+from app.models.models import Base
 import os
 
 # Crear las tablas (equivalente a JPA)

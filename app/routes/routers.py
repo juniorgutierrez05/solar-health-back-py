@@ -4,14 +4,14 @@ from typing import List
 from decimal import Decimal
 from datetime import datetime
 
-from app.database import get_db
-from app.models import Departamento, Ciudad, IPS, Consumo, Irradiacion, SistemaFV, ResultadosFinancieros
+from app.db_config.database import get_db
+from app.models.models import Departamento, Ciudad, IPS, Consumo, Irradiacion, SistemaFV, ResultadosFinancieros
 from app.schemas import (
     DepartamentoResponse, CiudadResponse, IPSResponse, IPSCreate,
     RegistroCompletoRequest, RegistroCompletoResponse, ResultadosFinancierosData,
     ConsumoResponse
 )
-from app.calculadora_financiera import CalculadoraFinanciera
+from app.dashboard.calculadora_financiera import CalculadoraFinanciera
 
 # Router para Departamentos
 router_departamentos = APIRouter(prefix="/api/departamentos", tags=["departamentos"])
