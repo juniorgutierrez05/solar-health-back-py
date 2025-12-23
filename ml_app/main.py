@@ -6,7 +6,8 @@ API para predecir consumo energético y calcular facturas
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from ml_app.routes.routers_tarifas import router_prediccion
+from ml_app.routes.tarifas import tarifas
+from ml_app.routes.peak_shaving import peak_saving
 import uvicorn
 import os
 
@@ -27,7 +28,8 @@ app.add_middleware(
 )
 
 # Incluir routers
-app.include_router(router_prediccion)
+app.include_router(tarifas)
+app.include_router(peak_saving)
 
 # Endpoint raíz
 @app.get("/")

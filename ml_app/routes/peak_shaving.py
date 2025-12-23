@@ -1,28 +1,19 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
 import joblib
 import numpy as np
+from ml_app.models.schemas_peak_saving import PeakShavingInput
 
-router = APIRouter()
+peak_saving = APIRouter()
 
 # =========================
 # Cargar modelo
 # =========================
-model = joblib.load("modelos/peak_shaving_model.pkl")
-
-# =========================
-# Esquema de entrada
-# =========================
-class PeakShavingInput(BaseModel):
-    hour: int
-    day_of_week: int
-    ghi: float
-    cloud_opacity: float
+model = joblib.load("ml_app/modelos/peak_shaving_model.pkl")
 
 # =========================
 # Endpoint
 # =========================
-@router.post("/predict/peak-shaving")
+@peak_saving.post("/predict/peak-shaving")
 def predict_peak_shaving(data: PeakShavingInput):
 
     X = np.array([[
