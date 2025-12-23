@@ -8,10 +8,10 @@ import pandas as pd
 import numpy as np
 
 # Router principal
-router_prediccion = APIRouter(prefix="/api", tags=["prediccion"])
+tarifas = APIRouter(prefix="/api", tags=["tarifas"])
 
 
-@router_prediccion.post("/predict", response_model=PrediccionPuntualResponse)
+@tarifas.post("/predict/specific-point", response_model=PrediccionPuntualResponse)
 def predecir_consumo_endpoint(request: PrediccionPuntualRequest):
     """
     Predice consumo y costo para un momento específico
@@ -36,7 +36,7 @@ def predecir_consumo_endpoint(request: PrediccionPuntualRequest):
         raise HTTPException(status_code=500, detail=f"Error en predicción: {str(e)}")
 
 
-@router_prediccion.post("/predict/monthly", response_model=FacturaMensualResponse)
+@tarifas.post("/predict/monthly", response_model=FacturaMensualResponse)
 def calcular_factura_endpoint(request: FacturaMensualRequest):
     """
     Calcula la factura completa de un mes

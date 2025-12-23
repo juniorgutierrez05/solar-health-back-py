@@ -8,6 +8,8 @@ Microservicio de Machine Learning para:
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from ml_app.routes.tarifas import tarifas
+from ml_app.routes.peak_shaving import peak_saving
 import uvicorn
 import os
 
@@ -32,17 +34,8 @@ app.add_middleware(
 )
 
 # Incluir routers
-app.include_router(
-    peak_shaving.router,
-    prefix="/ml/peak-shaving",
-    tags=["Machine Learning - Peak Shaving"]
-)
-
-app.include_router(
-    router_prediccion,
-    prefix="/ml/prediccion",
-    tags=["Machine Learning - Predicción Consumo"]
-)
+app.include_router(tarifas)
+app.include_router(peak_saving)
 
 # Endpoint raíz
 @app.get("/")
